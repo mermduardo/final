@@ -14,7 +14,9 @@ public class Costume{
     private Integer id;
     private String name;
     private String brand;
-    private Integer years;
+
+    @Column(name="years")
+    private Integer year;
     private String description;
 
     @ManyToOne
@@ -70,12 +72,12 @@ public class Costume{
         this.brand = brand;
     }
 
-    public Integer getYears() {
-        return years;
+    public Integer getYear() {
+        return year;
     }
 
-    public void setYears(Integer years) {
-        this.years = years;
+    public void setYear(Integer year) {
+        this.year = year;
     }
 
     public String getDescription() {
@@ -101,7 +103,7 @@ public class Costume{
         this.id = id;
         this.name = name;
         this.brand = brand;
-        this.years = year;
+        this.year = year;
         this.description = description;
         this.category = category;
     }

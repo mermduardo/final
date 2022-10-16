@@ -42,8 +42,8 @@ public class CostumeService {
                     q.get().setName(costume.getName());
                 }if (costume.getBrand()!=null){
                     q.get().setBrand(costume.getBrand());
-                }if (costume.getYears()!=null){
-                    q.get().setYears(costume.getYears());
+                }if (costume.getYear()!=null){
+                    q.get().setYear(costume.getYear());
                 }if (costume.getDescription()!=null){
                     q.get().setDescription(costume.getDescription());
                 }if (costume.getCategory()!=null){
