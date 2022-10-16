@@ -40,7 +40,7 @@ public class ClientService {
     public Client update(Client client){
         if (client.getIdClient()!=null){
             Optional<Client> q = clientRepository.getClient(client.getIdClient());
-            if (!q.isEmpty()){
+            if (!q.isPresent()){
                 if (client.getName() !=null) {
                     q.get().setName(client.getName());
                 }if (client.getAge()!=null){
