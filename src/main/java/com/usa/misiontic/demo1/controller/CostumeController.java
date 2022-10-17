@@ -1,6 +1,7 @@
 package com.usa.misiontic.demo1.controller;
 
 import com.usa.misiontic.demo1.entities.Costume;
+import com.usa.misiontic.demo1.entities.Reservation;
 import com.usa.misiontic.demo1.service.CostumeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,7 +29,7 @@ public class CostumeController {
         return costumeService.save(costume);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Costume update(@RequestBody Costume costume ){
         return costumeService.update(costume);
@@ -39,4 +40,6 @@ public class CostumeController {
     public boolean delete(@PathVariable("id") int id){
         return costumeService.deleteCustome( id);
     }
+
+
 }

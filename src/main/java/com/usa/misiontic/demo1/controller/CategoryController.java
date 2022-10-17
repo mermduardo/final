@@ -1,6 +1,7 @@
 package com.usa.misiontic.demo1.controller;
 
 import com.usa.misiontic.demo1.entities.Category;
+import com.usa.misiontic.demo1.entities.Reservation;
 import com.usa.misiontic.demo1.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,10 +28,11 @@ public class CategoryController {
         return categoryService.save(category);
     }
 
-    @PostMapping("/update")
+
+    @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Category update(@RequestBody Category category){
-        return categoryService.update(category);
+    public Category update(@RequestBody Category r){
+        return categoryService.update(r);
     }
 
     @DeleteMapping("/{id}")
@@ -38,8 +40,5 @@ public class CategoryController {
     public boolean delete(@PathVariable("id") int id){
         return categoryService.deleteCategory(id);
     }
-
-
-
 
 }

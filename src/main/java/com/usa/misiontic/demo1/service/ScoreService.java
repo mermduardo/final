@@ -1,9 +1,12 @@
 package com.usa.misiontic.demo1.service;
 
+import com.usa.misiontic.demo1.entities.Reservation;
 import com.usa.misiontic.demo1.entities.Score;
 import com.usa.misiontic.demo1.repository.ScoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -54,4 +57,5 @@ public class ScoreService {
         }).orElse(false);
         return d;
     }
+
 }
