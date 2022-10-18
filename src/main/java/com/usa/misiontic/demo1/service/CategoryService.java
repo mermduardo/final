@@ -40,18 +40,23 @@ public class CategoryService {
 
 
     public Category update(Category category){
-        if (category.getId()!=null){
-            Optional<Category> q = categoryRepository.getCategory(category.getId());
-            if (!q.isPresent()){
-                if (category.getDescription() !=null) {
-                    q.get().setDescription(category.getDescription());
-                }if (category.getName()!=null){
-                    q.get().setName(category.getName());
+        if(category.getId()!=null){
+            Optional<Category> e = categoryRepository.getCategory(category.getId());
+            if (e.isPresent()){
+                if (category.getName()!=null){
+                    e.get().setName(category.getName());
                 }
-                return categoryRepository.save(q.get());
+                if (category.getDescription()!=null){
+                    e.get().setDescription(category.getDescription());
+                }
+                categoryRepository.save(e.get());
+                return e.get();
+            }else {
+                return category;
             }
+        }else {
+            return category;
         }
-        return category;
     }
 
 
