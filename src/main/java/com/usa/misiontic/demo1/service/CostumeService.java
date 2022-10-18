@@ -38,26 +38,30 @@ public class CostumeService {
     }
 
     public Costume update(Costume costume){
-        if (costume.getId()!=null){
-            Optional<Costume> q = costumeRepository.getCostume(costume.getId());
-            if (!q.isPresent()){
-                if (costume.getName() !=null) {
-                    q.get().setName(costume.getName());
-                }if (costume.getBrand()!=null){
-                    q.get().setBrand(costume.getBrand());
-                }if (costume.getYear()!=null){
-                    q.get().setYear(costume.getYear());
-                }if (costume.getDescription()!=null){
-                    q.get().setDescription(costume.getDescription());
-                }if (costume.getCategory()!=null){
-                    q.get().setCategory(costume.getCategory());
+        if(costume.getId()!=null){
+            Optional<Costume> e = costumeRepository.getCostume(costume.getId());
+            if (e.isPresent())
+            {if (costume.getName()!=null){
+                e.get().setName(costume.getName());
+            }
+                if (costume.getBrand()!=null){
+                    e.get().setBrand(costume.getBrand());
                 }
-                costumeRepository.save(q.get());
-                return q.get();
+                if (costume.getDescription()!=null){
+                    e.get().setDescription(costume.getDescription());
+                }
+                if (costume.getYear()!=null){
+                    e.get().setYear(costume.getYear());
+                }
+                if (costume.getCategory()!=null){
+                    e.get().setCategory(costume.getCategory());
+                }
+                costumeRepository.save(e.get());
+                return e.get();
             }else {
                 return costume;
             }
-        }else{
+        }else {
             return costume;
         }
     }
